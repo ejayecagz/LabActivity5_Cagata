@@ -31,27 +31,31 @@ public class SimpleCalcGUI extends JFrame {
         btnCompute.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                double num1 = Double.parseDouble(tfNumber1.getText());
-                double num2 = Double.parseDouble(tfNumber2.getText());
-                double result = 0;
-                String op = cbOperations.getSelectedItem().toString();
-                switch (op) {
-                    case "+":
-                        result = num1 + num2;
-                        lblResult.setText(String.valueOf(String.format("%.0f", result)));
-                        break;
-                    case "-":
-                        result = num1 - num2;
-                        lblResult.setText(String.valueOf(String.format("%.0f", result)));
-                        break;
-                    case "*":
-                        result = num1 * num2;
-                        lblResult.setText(String.valueOf(String.format("%.2f", result)));
-                        break;
-                    case "/":
-                        result = num1 / num2;
-                        lblResult.setText(String.valueOf(String.format("%.2f", result)));
-                        break;
+                try {
+                    double num1 = Double.parseDouble(tfNumber1.getText());
+                    double num2 = Double.parseDouble(tfNumber2.getText());
+                    double result = 0;
+                    String op = cbOperations.getSelectedItem().toString();
+                    switch (op) {
+                        case "+":
+                            result = num1 + num2;
+                            lblResult.setText(String.valueOf(String.format("%.0f", result)));
+                            break;
+                        case "-":
+                            result = num1 - num2;
+                            lblResult.setText(String.valueOf(String.format("%.0f", result)));
+                            break;
+                        case "*":
+                            result = num1 * num2;
+                            lblResult.setText(String.valueOf(String.format("%.2f", result)));
+                            break;
+                        case "/":
+                            result = num1 / num2;
+                            lblResult.setText(String.valueOf(String.format("%.2f", result)));
+                            break;
+                    }
+                } catch (Exception a) {
+                    JOptionPane.showMessageDialog(null, "Invalid Input");
                 }
             }
         });
